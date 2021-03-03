@@ -15,7 +15,7 @@ app.listen(port, ()=>{
   console.log('App initalized on port ' + port);
 });
 
-app.get("/ok", (req, res, next) => {
+app.get("/api/ok", (req, res, next) => {
   res.json({"message":"Ok"})
 });
 

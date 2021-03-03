@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve —-proxy-config proxy.conf.json",
     "start:server": "npx nodemon --exec npx babel-node server/server.js",
     "build": "ng build",
     "test": "ng test",
@@ -11,7 +11,7 @@
     "e2e": "ng e2e"
   },
   "private": true,
-  "proxy": "http://localhost:4100/",
+  "proxy": "http://localhost:4100",
   "dependencies": {
     "@angular/animations": "~11.2.1",
     "@angular/common": "~11.2.1",
