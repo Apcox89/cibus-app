@@ -11,7 +11,7 @@
     "e2e": "ng e2e"
   },
   "private": true,
-  "proxy": "http://localhost:3100/",
+  "proxy": "http://localhost:4100/",
   "dependencies": {
     "@angular/animations": "~11.2.1",
     "@angular/common": "~11.2.1",
