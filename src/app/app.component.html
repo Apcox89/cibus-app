@@ -1,7 +1,19 @@
-<h1> Recipe Page goes here</h1>
-
-<li> List Recipe</li>
-
-<li> Add Recipe </li>
+<nav class="nav">
+    <ul>
+        <li>
+            <a class="nav-link active text-danger" routerLink="/" routerLinkActive="active">Home</a>
+        </li>
+    </ul>
+    <ul>
+        <li>
+            <a  class="nav-link active text-danger" routerLink="/recipe-page" routerLinkActive="active">Display Recipe</a>
+        </li>
+    </ul>
+    <ul>
+        <li>
+            <a  class="nav-link active text-danger" routerLink="/add-ingredient" routerLinkActive="active">Add Ingredient</a>
+        </li>
+    </ul>
+</nav>
 
 <router-outlet></router-outlet>
