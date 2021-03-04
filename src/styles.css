@@ -2,8 +2,15 @@
 
 body{
     background-color: black;
-    background-image: url('./assets/images/Cibus-Market-Resize1.png');
+    background-image: url('./assets/images/CIbus-Market-ResponsiveResizeFull.png');
     background-repeat: no-repeat;
-    background-size: auto;
-    
+    background-size: cover;
+
 }
+
+@media only screen and (max-width: 680px) {
+    body {
+      background-color: lightblue;
+      background-image: url('./assets/images/Cibus_RWD_Revised.png');
+    }
+  }
