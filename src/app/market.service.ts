@@ -10,9 +10,7 @@ export interface Market {
 export class MarketService {
   constructor(private http: HttpClient) {}
 
-  //when you come back to this make sure your function
-  //names match in the api 
-
+  //implement these functions in the .ts files of your pages
   getAllIngredients(): Observable<Market[]> {
     return this.http.get<Market[]>('/api/ingredients/')
   }
