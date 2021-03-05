@@ -61,13 +61,14 @@ function getIngredient(){
 
 app.route('/api/recipe/:recipeTitle').get((req, res) => {
   const RecipeTitle = req.params['recipeTitle']
+  //call to db to pass in value of paramater
+
   res.send({ recipeTitle: Recipetitle })
 })
 
 app.route('/api/ingredients').post((req, res) => {
   res.send(201, req.body)
 })
-
 
 app.route('/api/ingredient/:ingredientName').post((req, res) => 
   res.send(JSON.stringify(postIngredient(req.params.ingredietnName), null, 2)) );
@@ -82,4 +83,3 @@ function postIngredient(IngredientName){
 
 }
 
-//app.listen(3001, () => console.log('Listening on port 3001'));
