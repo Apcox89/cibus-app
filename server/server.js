@@ -15,15 +15,15 @@ app.listen(port, ()=>{
   console.log('App initalized on port ' + port);
 });
 
+app.get('/', (req, res)=>{
+  res.sendFile(path.join(__dirname + '/Bootstrap4.html')); 
+});
+
 app.get("/api/ok", (req, res, next) => {
   res.json({"message":"Ok"})
 });
 
-app.get('/', (req, res)=>{
-     res.sendFile(path.join(__dirname + '/Bootstrap4.html')); 
-});
-
-app.route('/recipe/:recipeID')
+app.route('/api/recipe/:recipeID')
   .get((req, res) =>
   res.send(JSON.stringify(getRecipe(req.params.recipeID), null, 2)) );
 
@@ -42,7 +42,7 @@ function getRecipe(RecipeID) {
 };
 
 
-app.route('/ingredient/').get((req, res) => res.send(JSON.stringify(getIngredient(), null, 2)) );
+app.route('/api/ingredient/').get((req, res) => res.send(JSON.stringify(getIngredient(), null, 2)) );
 
 function getIngredient(){
   console.log("is working")
@@ -54,6 +54,20 @@ function getIngredient(){
   console.log(ingredient);
 
   return ingredient;
+}
+
+
+app.route('/api/ingredient/:ingredientName').post((req, res) => 
+  res.send(JSON.stringify(postIngredient(req.params.ingredietnName), null, 2)) );
+
+function postIngredient(IngredientName){
+
+    var ingredient = {Ingredients: req.body.ingredientName};
+    //var params = [Ingredients.ingredientName];
+    console.log(Ingredients.ingredientName);
+    const row = db.prepare(`INSERT INTO Ingredient(ingredientName) VALUES(${IngredientName})`).run()
+    ingredient.Ingredients = row.ingredientName;
+
 }
 
 //app.listen(3001, () => console.log('Listening on port 3001'));
