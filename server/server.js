@@ -5,6 +5,9 @@ var app = express();
 const cors = require('cors')
 app.use(cors())
 
+const bodyParser = require('body-parser')
+app.use(bodyParser.json())
+
 var dbConnection = path.join(__dirname + '/market1.db');
 console.log(dbConnection);
 const db = require('better-sqlite3')(dbConnection,  { verbose: console.log });
@@ -55,6 +58,15 @@ function getIngredient(){
 
   return ingredient;
 }
+
+app.route('/api/recipe/:recipeTitle').get((req, res) => {
+  const RecipeTitle = req.params['recipeTitle']
+  res.send({ recipeTitle: Recipetitle })
+})
+
+app.route('/api/ingredients').post((req, res) => {
+  res.send(201, req.body)
+})
 
 
 app.route('/api/ingredient/:ingredientName').post((req, res) => 
