@@ -31,11 +31,10 @@ app.route('/api/recipe/:recipeID')
   res.send(JSON.stringify(getRecipe(req.params.recipeID), null, 2)) );
 
 function getRecipe(RecipeID) {
-    // We will be getting this from the database !!!!!!
+
     var recipe = {RecipeTitle:"Template", Servings:"4", Ingredients:[]};
     const row = db.prepare('SELECT * FROM Recipe WHERE recipeId = ' + RecipeID).get();
     recipe.RecipeTitle = row.recipeTitle;
-    //console.log(row.recipeTitle);
 
     const ingredientsDB = db.prepare('SELECT ingredientName FROM [vwRec-Ing] WHERE recipe_Id = ' + RecipeID).all();
     var ingredients = ingredientsDB;    
@@ -60,8 +59,7 @@ function getIngredient(){
 }
 
 app.route('/api/recipe/:recipeTitle').get((req, res) => {
-  const RecipeTitle = req.params['recipeTitle']
-  //call to db to pass in value of paramater
+  const RecipeTitle = req.params['recipeTitle'];
 
   res.send({ recipeTitle: Recipetitle })
 })
